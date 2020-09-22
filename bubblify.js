@@ -89,8 +89,8 @@ function render(){
     noStroke();
     for(var i = 0;i<bubbles.length; i++){
         canvw = document.getElementById("ogimg").offsetWidth;
-        fill(0,0,0,bubbles[i].size.map(0,canvw/20, 0, 255));
-        ellipse(bubbles[i].x.map(0,img.width, 0,canvw),bubbles[i].y.map(0,img.height, 0, canvh), (bubbles[i].size/7)*(bubbles[i].size/7),(bubbles[i].size/7)* bubbles[i].size/7);
+        fill(0,0,0,bubbles[i].size.map(0,canvw/16, 0, 255));
+        ellipse(bubbles[i].x.map(0,img.width, 0,canvw),bubbles[i].y.map(0,img.height, 0, canvh), (bubbles[i].size/1.5),(bubbles[i].size/1.5));
     }
 }
 
