@@ -24,7 +24,7 @@ function setup(){
     img.loadPixels();
     canvw = document.getElementById("ogimg").offsetWidth;
     canvh = document.getElementById("ogimg").offsetHeight;
-    var step = img.width/80;
+    var step = img.width/60;
     for(var x = 0;x<img.width;x+=step){
         for(var y = 0;y<img.height;y+=step){
             var pix = img.get(x,y)
@@ -53,7 +53,7 @@ function windowResized(){
     canvh = document.getElementById("ogimg").offsetHeight;
 
     for(var i = 0;i<bubbles.length;i++){
-        bubbles[i].intendedsize = canvw/30;
+        bubbles[i].intendedsize = canvw;
     }
     console.log("w:"+canvw+" h:"+canvh);
     resizeCanvas(canvw, canvh);
@@ -70,7 +70,7 @@ function draw(){
 function tick(){
     for(var i = 0;i<bubbles.length;i++){
         if(bubbles[i].size<bubbles[i].intendedsize){
-            bubbles[i].size+=0.5;
+            bubbles[i].size+=0.9;
             shakeamount = (1 - bubbles[i].size/bubbles[i].intendedsize)*4
             bubbles[i].x+=(Math.random()*shakeamount-shakeamount/2);
             bubbles[i].y+=(Math.random()*shakeamount-shakeamount/2);
@@ -89,8 +89,8 @@ function render(){
     noStroke();
     for(var i = 0;i<bubbles.length; i++){
         canvw = document.getElementById("ogimg").offsetWidth;
-        fill(0,0,0,bubbles[i].size.map(0,canvw/17, 0, 255));
-        ellipse(bubbles[i].x.map(0,img.width, 0,canvw),bubbles[i].y.map(0,img.height, 0, canvh), bubbles[i].size/2, bubbles[i].size/2);
+        fill(0,0,0,bubbles[i].size.map(0,canvw/20, 0, 255));
+        ellipse(bubbles[i].x.map(0,img.width, 0,canvw),bubbles[i].y.map(0,img.height, 0, canvh), (bubbles[i].size/7)*(bubbles[i].size/7),(bubbles[i].size/7)* bubbles[i].size/7);
     }
 }
 
